@@ -12,10 +12,15 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
+
 let gallery = document.querySelector(".gallery")
-for (let image of images) {
-    let img = `<img src="${image.url}" alt="${image.alt}" width="30%"></img>`
-    gallery.insertAdjacentHTML("beforeend", img);
-}
+const galleryArr = []
+
+images.map((image) => {
+  let img = `<img src="${image.url}" alt="${image.alt}" width="30%"></img>`
+  galleryArr.push(img)
+})
+
+gallery.insertAdjacentHTML("beforeend", [...galleryArr]);
 gallery.style.display = 'flex'
 gallery.style.justifyContent = "space-between"
