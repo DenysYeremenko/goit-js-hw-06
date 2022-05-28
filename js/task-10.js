@@ -31,6 +31,7 @@ const destroyBoxes = () => {
   boxes.innerHTML = ""
   width = 30
   height = 30
+  input.value = ""
 }
 
 destroyBtn.addEventListener('click', destroyBoxes)
