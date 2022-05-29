@@ -13,14 +13,16 @@ const images = [
   },
 ];
 
-let gallery = document.querySelector(".gallery")
-const galleryArr = []
+let galleryEl = document.querySelector(".gallery")
 
-images.map((image) => {
-  let img = `<img src="${image.url}" alt="${image.alt}" width="30%"></img>`
-  galleryArr.push(img)
-})
+const imgAddFunc = ({url, alt}) => {
+  return `<li width="30%"><img src=${url} alt=${alt} width="100%"></img></li>`
+}
 
-gallery.insertAdjacentHTML("beforeend", [...galleryArr]);
-gallery.style.display = 'flex'
-gallery.style.justifyContent = "space-between"
+const galleryItems = images.map(imgAddFunc)
+
+galleryEl.insertAdjacentHTML("afterbegin", galleryItems.join(""));
+galleryEl.style.display = 'flex'
+galleryEl.style.justifyContent = "space-between"
+galleryEl.style.alignItems = 'center'
+galleryEl.style.listStyle = 'none'
